@@ -9,7 +9,7 @@
     {% for key, value in items.items %}
         <div>
             <p>{{ value.name }} - {{ value.price }}</p>
-            <button>Купить</button>
+            <a href="{% url 'add_to_cart' key %}"><button>Купить</button></a>
         </div>
     {% endfor %}
     <br/>

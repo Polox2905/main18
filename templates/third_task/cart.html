@@ -4,21 +4,35 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Можете использовать любые стили и скрипты -->
     <title>Корзина</title>
 </head>
 
 <body style="background-color:#F7EFEA;">
 <div class="container">
-    <!-- Сообщение о пустой корзине -->
-    <p style="font-size: 24px; text-align: center;">Ваша корзина пуста.</p>
+    {% if cart_items %}
+        <h2>Вы приобрели:</h2>
+        <ul>
+            {% for  key, value in cart_items.items %}
+                <li>{{ value.name }} x {{ value.qty }} шт</li>
+            {% endfor %}
 
-    <!-- Кнопка возврата на главную страницу -->
+        </ul>
+
+        <p>Общая сумма: ${{ total_price }}</p>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <button>Оплатить</button>
+        </div>
+    {% else %}
+        <p style="font-size: 24px; text-align: center;">Ваша корзина пуста.</p>
+    {% endif %}
+
     <div style="text-align: center; margin-top: 20px;">
         <a href="{% url 'platform' %}" style="font-size:18px;">Вернуться на главную</a>
     </div>
-</div>
-</body>
-</html>
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="clear-cart">Очистить корзину</button>
+    </div>
 
+</body>
 </html>

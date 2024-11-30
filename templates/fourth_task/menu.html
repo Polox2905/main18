@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <!-- Блок для заголовка страницы -->
+    {% block pagename %}
+    <h1>{{ page_title }}</h1>
+    {% endblock %}
+
+    <!-- Меню навигации -->
+    {% block menu %}
+    <ul class="nav">
+        <li><a href="{% url 'platform' %}">Главная</a></li>
+        <li><a href="{% url 'games' %}">Игры</a></li>
+        <li><a href="{% url 'cart' %}">Корзина</a></li>
+    </ul>
+    {% endblock %}
+
+    <!-- Основной контент страницы -->
+    {% block content %}{% endblock %}
+
+</body>
+</html>

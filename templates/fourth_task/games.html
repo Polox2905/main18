@@ -1,0 +1,19 @@
+{% extends 'fourth_task/menu.html' %}
+
+{% block title %}Список игр{% endblock %}
+
+{% block pagename %}
+<h1>Список игр</h1>
+{% endblock %}
+
+{% block content %}
+<div class="game-list">
+    {% for game in items %}
+    <div class="game-item">
+        <h2>{{ game.name }}</h2>
+        <p>Цена: {{ game.price }}</p>
+        <button type="submit" formaction="{% url 'add_to_cart' game.id %}">Добавить в корзину</button>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

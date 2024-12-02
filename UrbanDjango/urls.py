@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('task2.urls')),
 #    path('', include('task3.urls')),
-    path('', include('task4.urls')),
+#    path('', include('task4.urls')),
+    path('', include('task5.urls')),
 ]
